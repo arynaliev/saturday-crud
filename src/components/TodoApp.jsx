@@ -40,25 +40,36 @@ const TodoApp = () => {
 
   return (
     <UserContext.Provider value={{ todoList, setTodoList }}>
-      <Container>
-        <h3>Todo App</h3>
+      <Container
+        sx={{
+          width: "40%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          borderRadius: 1,
+        }}
+      >
+        <h2>Todo App</h2>
         <Box
           component="form"
           sx={{
-            "& > :not(style)": { m: 1, width: "25ch" },
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            // "& > :not(style)": { m: 1, width: "25ch" },
           }}
           noValidate
           autoComplete="off"
         >
           <TextField
+            sx={{ width: "50%", m: 1 }}
             id="standard-basic"
             label="enter plan to do"
             variant="standard"
             value={newTodo.item}
-            // defaultValue={newTodo.item}
             onChange={handleChange}
           />
-          <Button variant="contained" onClick={handleClick}>
+          <Button sx={{ p: 1 }} variant="contained" onClick={handleClick}>
             Add
           </Button>
         </Box>
